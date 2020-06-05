@@ -4,19 +4,20 @@ setup:
 
 .PHONY: build
 build:
-	docker-compose build base-api
+	docker-compose build lbh-dynamics365-accesstoken-api
 
 .PHONY: serve
 serve:
-	docker-compose build base-api && docker-compose up base-api
+	docker-compose build lbh-dynamics365-accesstoken-api && docker-compose up lbh-dynamics365-accesstoken-api
 
 .PHONY: shell
 shell:
-	docker-compose run base-api bash
+	docker-compose run lbh-dynamics365-accesstoken-api bash
 
 .PHONY: test
 test:
-	docker-compose up test-database & docker-compose build base-api-test && docker-compose up base-api-test
+	docker-compose up -d test-database
+	docker-compose build lbh-dynamics365-accesstoken-api-test && docker-compose up lbh-dynamics365-accesstoken-api-test
 
 .PHONY: lint
 lint:
