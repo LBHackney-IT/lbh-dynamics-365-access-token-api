@@ -118,7 +118,7 @@ namespace lbhDynamics365AccessTokenApi
 
         private static void RegisterGateways(IServiceCollection services)
         {
-            services.AddSingleton<IExampleGateway, ExampleGateway>();
+            services.AddSingleton<IAccessTokenGateway, AccessTokenGateway>();
         }
 
         private static void RegisterUseCases(IServiceCollection services)
